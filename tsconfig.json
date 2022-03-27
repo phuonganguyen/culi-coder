@@ -15,10 +15,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"]
+      "@/components/*": ["src/components/*"],
+      "@/data/*": ["src/data/*"],
+      "@/utils/*": ["src/utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/social-icons/index.js"],
   "exclude": ["node_modules"]
 }
