@@ -8,6 +8,7 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   instagram: 'https://instagram.com/einargudni',
   linkedin: 'https://www.linkedin.com/einargudni/',
+  locale: 'en-US',
 }
 
 export default siteMetadata
