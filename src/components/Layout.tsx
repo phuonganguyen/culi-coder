@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 import Footer from "./Footer";
 import Header from "./Header";
+import NowPlaying from "./NowPlaying";
 
 type Props = {
   children?: ReactNode
@@ -12,6 +13,7 @@ const Layout = ({ children }: Props) => (
     <div className="flex flex-col justify-between h-screen">
       <Header />
       <main className="relative mb-auto">{children}</main>
+      <NowPlaying />
       <Footer />
     </div>
   </div>

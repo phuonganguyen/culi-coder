@@ -12,7 +12,7 @@ export default function Footer() {
           <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
           <SocialIcon kind="twitter" href={siteMetadata.twitter} />
         </div>
-        <div className="flex mb-3 space-x-2 text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex mb-3 space-x-2 text-base text-gray-500 dark:text-gray-400">
           {siteMetadata.author} | Have a good {currentDayName()}!
         </div>
       </div>

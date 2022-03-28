@@ -5,13 +5,14 @@ import { formatDate } from "@/utils/date-utils";
 import Image from "next/image";
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
+import { getPosts } from "src/services";
 
 const MAX_DISPLAY = 3
 
 export async function getStaticProps() {
-  //const posts = await getAllFilesFrontMatter('blog')
+  const posts = (await getPosts()) || []
 
-  return { props: { posts: [] } }
+  return { props: { posts } }
 }
 
 const IndexPage = ({ posts }) => (
@@ -76,7 +77,7 @@ const IndexPage = ({ posts }) => (
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         {!posts.length && 'No posts found.'}
         {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-          const { slug, date, title, summary, tags } = frontMatter
+          const { createdAt, slug, title, excerpt, tags } = frontMatter.node
           return (
             <li key={slug} className="py-12">
               <article>
@@ -84,7 +85,7 @@ const IndexPage = ({ posts }) => (
                   <dl>
                     <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-slate-600 dark:text-slate-400">
-                      <time dateTime={date}>{formatDate(date)}</time>
+                      <time dateTime={createdAt}>{formatDate(createdAt)}</time>
                     </dd>
                   </dl>
                   <div className="space-y-5 xl:col-span-3">
@@ -100,12 +101,12 @@ const IndexPage = ({ posts }) => (
                         </h2>
                         <div className="flex flex-wrap">
                           {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
+                            <Tag key={tag.slug} text={tag.slug} />
                           ))}
                         </div>
                       </div>
                       <div className="prose text-slate-600 max-w-none dark:text-slate-400">
-                        {summary}
+                        {excerpt}
                       </div>
                     </div>
                     <div className="text-base font-medium leading-6">

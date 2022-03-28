@@ -20,6 +20,6 @@
       "@/utils/*": ["src/utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/social-icons/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/social-icons/index.js", "src/utils/fetcher.js"],
   "exclude": ["node_modules"]
 }
