@@ -2,8 +2,6 @@ import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import Tag from "@/components/Tag";
 import siteMetadata from "@/data/siteMetadata";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 import { useRouter } from "next/router";
 import React from "react";
 import { getPostDetails, getPosts } from "src/services";
@@ -15,14 +13,14 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
   day: 'numeric',
 }
 
-const BlogDetail = ({ post, content }) => {
+const BlogDetail = ({ post }) => {
   const router = useRouter()
 
   if (router.isFallback) {
     return <></>
   }
 
-  const { createdAt, title, tags } = post
+  const { createdAt, title, tags, content } = post
 
   return (
     <div className="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
@@ -54,7 +52,7 @@ const BlogDetail = ({ post, content }) => {
           >
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
               <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">
-                <MDXRemote {...content} components={[]}></MDXRemote>
+                <div dangerouslySetInnerHTML={{ __html: content.html }}></div>
               </div>
             </div>
             <footer>
@@ -92,13 +90,9 @@ export default BlogDetail
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug)
-  console.log(data.content.markdown)
-  const content = await serialize(data.content.markdown)
-  console.log(content)
   return {
     props: {
       post: data,
-      content,
     },
   }
 }

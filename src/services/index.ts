@@ -38,7 +38,7 @@ export const getPostDetails = async (slug) => {
         createdAt
         slug
         content {
-          markdown
+          html
         }
         tags {
           slug
