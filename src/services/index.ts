@@ -1,32 +1,30 @@
-import { gql, request } from "graphql-request";
+import { gql, GraphQLClient } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
+const client = new GraphQLClient(graphqlAPI)
+
 export const getPosts = async () => {
   const query = gql`
-    query MyQuery {
-      postsConnection {
-        edges {
-          node {
-            createdAt
-            slug
-            title
-            excerpt
-            tags {
-              slug
-            }
-          }
+    {
+      posts {
+        createdAt
+        slug
+        title
+        excerpt
+        tags {
+          slug
         }
       }
     }
   `
 
-  const result = await request(graphqlAPI, query)
+  const { posts } = await client.request(query)
 
-  return result.postsConnection.edges
+  return posts
 }
 
-export const getPostDetails = async (slug) => {
+export const getPostDetails = async (slug: string) => {
   const query = gql`
     query GetPostDetails($slug: String!) {
       post(where: { slug: $slug }) {
@@ -53,7 +51,30 @@ export const getPostDetails = async (slug) => {
     }
   `
 
-  const result = await request(graphqlAPI, query, { slug })
+  const { post } = await client.request(query, { slug })
 
-  return result.post
+  return post
+}
+
+export const getTags = async () => {
+  const query = gql`
+    {
+      tags {
+        name
+        slug
+      }
+    }
+  `
+
+  const { tags } = await client.request(query)
+
+  return tags
+}
+
+export const getPostsByTag = async (tag: string) => {
+  const query = gql`
+  query getPostsByTag($tag: String!){
+    
+  }
+  `
 }

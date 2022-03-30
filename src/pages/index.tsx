@@ -11,6 +11,8 @@ const MAX_DISPLAY = 3
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
 
+  console.log(posts)
+
   return { props: { posts } }
 }
 
@@ -76,10 +78,10 @@ const IndexPage = ({ posts }) => (
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         {!posts.length && 'No posts found.'}
         {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-          const { slug } = frontMatter.node
+          const { slug } = frontMatter
           return (
             <li key={slug} className="py-12">
-              <PostBlock {...frontMatter.node}></PostBlock>
+              <PostBlock {...frontMatter}></PostBlock>
             </li>
           )
         })}
