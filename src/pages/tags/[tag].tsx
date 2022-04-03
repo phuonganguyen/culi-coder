@@ -1,15 +1,13 @@
 import ListLayout from "@/components/ListLayout";
-import { getTags } from "src/services";
-
-const root = process.cwd()
+import { getPosts, getTags } from "src/services";
 
 export async function getStaticPaths() {
   const tags = await getTags()
 
   return {
-    paths: Object.keys(tags).map((tag) => ({
+    paths: tags.map(({ slug }) => ({
       params: {
-        tag,
+        tag: slug,
       },
     })),
     fallback: false,
@@ -17,9 +15,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const allPosts = []
+  const allPosts = await getPosts()
+  const filteredPosts = allPosts.filter((post) => post.tags.map((t) => t.slug).includes(params.tag))
 
-  return { props: { posts: allPosts, tag: params.tag } }
+  return { props: { posts: filteredPosts, tag: params.tag } }
 }
 
 export default function Tag({ posts, tag }) {

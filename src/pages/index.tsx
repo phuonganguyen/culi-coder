@@ -11,8 +11,6 @@ const MAX_DISPLAY = 3
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
 
-  console.log(posts)
-
   return { props: { posts } }
 }
 

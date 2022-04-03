@@ -70,11 +70,3 @@ export const getTags = async () => {
 
   return tags
 }
-
-export const getPostsByTag = async (tag: string) => {
-  const query = gql`
-  query getPostsByTag($tag: String!){
-    
-  }
-  `
-}
