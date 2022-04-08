@@ -1,3 +1,4 @@
+import Comments from "@/components/Comments";
 import Link from "@/components/Link";
 import PageTitle from "@/components/PageTitle";
 import Tag from "@/components/Tag";
@@ -76,6 +77,7 @@ const PostDetail = ({ post }) => {
                 className="pt-10 pb-8 prose dark:prose-dark max-w-none"
                 dangerouslySetInnerHTML={{ __html: content.html }}
               ></div>
+              <Comments frontMatter={post} />
             </div>
             <footer>
               <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
