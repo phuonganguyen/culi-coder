@@ -14,7 +14,7 @@ const Header = () => {
       <div>
         <Link href="/" aria-label="Einar Gudni's website">
           <div className="flex items-center justify-between text-xl font-semibold text-primary-color dark:text-primary-color-dark">
-            {`~/CuliCoder${router.asPath}`}{' '}
+            {`~${router.asPath}`}{' '}
             <Typewriter
               options={{
                 strings: [],
