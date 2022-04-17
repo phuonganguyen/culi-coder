@@ -1,3 +1,4 @@
+import siteMetadata from "@/data/siteMetadata";
 import { KBarAnimator, KBarPortal, KBarPositioner, KBarProvider, KBarResults, KBarSearch, useMatches } from "kbar";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -21,17 +22,8 @@ export default function CommandBar(props) {
       shortcut: ['e'],
       keywords: 'send-email',
       section: 'General',
-      perform: () => window.open('mailto:einargudnig@gmail.com', '_blank'),
+      perform: () => window.open(`mailto:${siteMetadata.email}`, '_blank'),
       icon: <i className="ri-mail-line" style={iconStyle} />,
-    },
-    {
-      id: 'source',
-      name: 'View Source',
-      shortcut: ['s'],
-      keywords: 'view-source',
-      section: 'General',
-      perform: () => window.open('https://github.com/einargudnig/einargudni.com', '_blank'),
-      icon: <i className="ri-braces-line" style={iconStyle} />,
     },
     {
       id: 'home',
@@ -60,15 +52,6 @@ export default function CommandBar(props) {
       perform: () => router.push('/blog'),
       icon: <i className="ri-ball-pen-line" style={iconStyle} />,
     },
-    {
-      id: 'projects',
-      name: 'Projects',
-      shortcut: ['g', 'p'],
-      keywords: 'go-projects',
-      section: 'Go To',
-      perform: () => router.push('/projects'),
-      icon: <i className="ri-lightbulb-line" style={iconStyle} />,
-    },
     // {
     //   id: 'reminder',
     //   name: 'Reminder',
@@ -84,7 +67,7 @@ export default function CommandBar(props) {
       shortcut: ['g'],
       keywords: 'go-github',
       section: 'Follow',
-      perform: () => window.open('https://github.com/einargudnig', '_blank'),
+      perform: () => window.open(siteMetadata.github, '_blank'),
       icon: <i className="ri-github-line" style={iconStyle} />,
     },
     {
@@ -93,7 +76,7 @@ export default function CommandBar(props) {
       shortcut: ['l'],
       keywords: 'go-linkedin',
       section: 'Follow',
-      perform: () => window.open('https://linkedin.com/in/einargudni', '_blank'),
+      perform: () => window.open(siteMetadata.linkedin, '_blank'),
       icon: <i className="ri-linkedin-line" style={iconStyle} />,
     },
   ]

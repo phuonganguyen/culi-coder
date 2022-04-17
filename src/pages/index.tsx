@@ -1,6 +1,7 @@
 import Link from "@/components/Link";
 import PostBlock from "@/components/PostBlock";
 import ShortcutHome from "@/components/ShortcutHome";
+import siteMetadata from "@/data/siteMetadata";
 import Image from "next/image";
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
@@ -21,8 +22,11 @@ const IndexPage = ({ posts }) => (
         <div className="flex items-center justify-between">
           <div className="">
             <h1 className="mb-2 text-2xl font-extrabold tracking-tight leading-11 text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              I'm <span className="text-primary-color dark:text-primary-color-dark">Phuong</span>, a
-              senior software engineer who's trying to get a bit better every day
+              I'm{' '}
+              <span className="text-primary-color dark:text-primary-color-dark">
+                {siteMetadata.author}
+              </span>
+              , a senior software engineer who's trying to get a bit better every day
             </h1>
           </div>
           <div>

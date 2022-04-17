@@ -1,13 +1,13 @@
 const siteMetadata = {
   title: 'Hi!👋',
   theme: 'system',
-  author: 'Phuong Nguyen',
+  author: 'Phuong',
   email: 'phuong.nguyenanh06@gmail.com',
-  github: 'https://github.com/einargudnig',
-  twitter: 'https://twitter.com/einargudni',
-  facebook: 'https://facebook.com',
-  instagram: 'https://instagram.com/einargudni',
-  linkedin: 'https://www.linkedin.com/einargudni/',
+  github: 'https://github.com/phuonganguyen',
+  twitter: 'https://twitter.com/phuongnguyen06',
+  facebook: 'https://www.facebook.com/phuong.a.nguyen.7',
+  instagram: 'https://www.instagram.com/phuong.nguyenanh06',
+  linkedin: 'https://www.linkedin.com/in/phuong-nguyen-5b214862/',
   locale: 'en-US',
   comment: {
     // Select a provider and use the environment variables associated to it

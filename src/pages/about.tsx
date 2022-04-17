@@ -1,4 +1,6 @@
+import Experience from "@/components/Experience";
 import Link from "@/components/Link";
+import experienceData from "@/data/experienceData";
 import Image from "next/image";
 import { RoughNotation } from "react-rough-notation";
 
@@ -58,6 +60,25 @@ const About = () => (
           </RoughNotation>
           or on social media.
         </p>
+      </div>
+    </div>
+    <div className="mt-10">
+      <div className="pt-6 pb-8 space-y-2 md:space-y-5">
+        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          Experience
+        </h1>
+      </div>
+      <div className="pt-8 pb-8 max-w-none xl:col-span-2">
+        {experienceData.map((d) => (
+          <Experience
+            key={d.company}
+            title={d.title}
+            company={d.company}
+            range={d.range}
+            url={d.url}
+            roles={d.roles}
+          />
+        ))}
       </div>
     </div>
   </>
