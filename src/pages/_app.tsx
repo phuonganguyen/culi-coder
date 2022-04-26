@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 
 import CommandBar from "@/components/CommandBar";
 import siteMetadata from "@/data/siteMetadata";
+import { DefaultSeo } from "next-seo";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 
@@ -21,6 +22,14 @@ function MyApp({ Component, pageProps }) {
           <link rel="manifest" href="/site.webmanifest" />
         </Head>
         <Layout>
+          <DefaultSeo
+            openGraph={{
+              type: 'website',
+              locale: 'en_US',
+              url: siteMetadata.url,
+              site_name: siteMetadata.title,
+            }}
+          />
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

@@ -1,6 +1,6 @@
 import siteMetadata from "@/data/siteMetadata";
 import { useTheme } from "next-themes";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 
 const Utterances = ({ issueTerm }) => {
   const { theme, resolvedTheme } = useTheme()

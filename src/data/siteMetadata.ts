@@ -2,6 +2,7 @@ const siteMetadata = {
   title: 'Hi!👋',
   theme: 'system',
   author: 'Phuong',
+  url: 'https://www.phuongculi.com/',
   email: 'phuong.nguyenanh06@gmail.com',
   github: 'https://github.com/phuonganguyen',
   twitter: 'https://twitter.com/phuongnguyen06',
