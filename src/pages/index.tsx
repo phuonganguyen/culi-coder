@@ -1,11 +1,10 @@
-import Link from '@/components/Link'
-import PostBlock from '@/components/PostBlock'
-import ShortcutHome from '@/components/ShortcutHome'
-import siteMetadata from '@/data/siteMetadata'
-import Image from 'next/image'
-import React from 'react'
-import { RoughNotation } from 'react-rough-notation'
-import { getPosts } from 'src/services'
+import Link from "@/components/Link";
+import PostBlock from "@/components/PostBlock";
+import ShortcutHome from "@/components/ShortcutHome";
+import siteMetadata from "@/data/siteMetadata";
+import React from "react";
+import { RoughNotation } from "react-rough-notation";
+import { getPosts } from "src/services";
 
 const MAX_DISPLAY = 3
 
@@ -22,21 +21,12 @@ const IndexPage = ({ posts }) => (
         <div className="flex items-center justify-between">
           <div className="">
             <h1 className="mb-2 text-2xl font-extrabold tracking-tight leading-11 text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              I'm{' '}
+              Hey! I am{' '}
               <span className="text-primary-color dark:text-primary-color-dark">
                 {siteMetadata.author}
-              </span>
-              , a senior software engineer who's trying to get a bit better every day
+              </span>{' '}
+              <span className="waving-hand">👋🏻</span>
             </h1>
-          </div>
-          <div>
-            <Image
-              src="/static/avatar.jpg"
-              alt="avatar"
-              width="384px"
-              height="384px"
-              className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
-            />
           </div>
         </div>
         <p className="text-lg leading-7 text-slate-600 dark:text-slate-300">
