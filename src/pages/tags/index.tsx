@@ -1,10 +1,10 @@
-import Tag from "@/components/Tag";
-import { getTags } from "src/services";
+import Tag from '@/components/Tag'
+import { getTags } from 'src/services'
 
 export async function getStaticProps() {
   const tags = await getTags()
 
-  return { props: { tags } }
+  return { props: { tags }, revalidate: 10 }
 }
 
 export default function Tags({ tags }) {

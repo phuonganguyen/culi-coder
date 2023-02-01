@@ -1,18 +1,18 @@
-import Link from "@/components/Link";
-import PostBlock from "@/components/PostBlock";
-import ShortcutHome from "@/components/ShortcutHome";
-import siteMetadata from "@/data/siteMetadata";
-import Image from "next/image";
-import React from "react";
-import { RoughNotation } from "react-rough-notation";
-import { getPosts } from "src/services";
+import Link from '@/components/Link'
+import PostBlock from '@/components/PostBlock'
+import ShortcutHome from '@/components/ShortcutHome'
+import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
+import React from 'react'
+import { RoughNotation } from 'react-rough-notation'
+import { getPosts } from 'src/services'
 
 const MAX_DISPLAY = 3
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
 
-  return { props: { posts } }
+  return { props: { posts }, revalidate: 10 }
 }
 
 const IndexPage = ({ posts }) => (

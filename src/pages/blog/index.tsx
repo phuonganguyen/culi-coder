@@ -1,6 +1,6 @@
-import ListLayout from "@/components/ListLayout";
-import React from "react";
-import { getPosts } from "src/services";
+import ListLayout from '@/components/ListLayout'
+import React from 'react'
+import { getPosts } from 'src/services'
 
 export const POSTS_PER_PAGE = 5
 
@@ -12,7 +12,7 @@ export async function getStaticProps() {
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
-  return { props: { initialDisplayPosts, posts, pagination } }
+  return { props: { initialDisplayPosts, posts, pagination }, revalidate: 10 }
 }
 
 const Blog = ({ posts, initialDisplayPosts, pagination }) => {

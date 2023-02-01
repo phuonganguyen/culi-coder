@@ -1,5 +1,5 @@
-import ListLayout from "@/components/ListLayout";
-import { getPosts, getTags } from "src/services";
+import ListLayout from '@/components/ListLayout'
+import { getPosts, getTags } from 'src/services'
 
 export async function getStaticPaths() {
   const tags = await getTags()
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
         tag: slug,
       },
     })),
-    fallback: false,
+    fallback: 'blocking',
   }
 }
 

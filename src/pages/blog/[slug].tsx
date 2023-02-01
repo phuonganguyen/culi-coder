@@ -1,12 +1,12 @@
-import Comments from "@/components/Comments";
-import Link from "@/components/Link";
-import PageTitle from "@/components/PageTitle";
-import Tag from "@/components/Tag";
-import siteMetadata from "@/data/siteMetadata";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import React from "react";
-import { getPostDetails, getPosts } from "src/services";
+import Comments from '@/components/Comments'
+import Link from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
+import Tag from '@/components/Tag'
+import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { getPostDetails, getPosts } from 'src/services'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -118,6 +118,7 @@ export async function getStaticProps({ params }) {
     props: {
       post: data,
     },
+    revalidate: 10,
   }
 }
 
@@ -125,6 +126,6 @@ export async function getStaticPaths() {
   const posts = await getPosts()
   return {
     paths: posts.map(({ slug }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: 'blocking',
   }
 }
