@@ -1,15 +1,17 @@
-import Experience from "@/components/Experience";
-import Link from "@/components/Link";
-import experienceData from "@/data/experienceData";
-import Image from "next/image";
-import { RoughNotation } from "react-rough-notation";
+import Experience from '@/components/Experience'
+import Link from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
+import { PageSEO } from '@/components/SEO'
+import experienceData from '@/data/experienceData'
+import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
+import { RoughNotation } from 'react-rough-notation'
 
 const About = () => (
   <>
+    <PageSEO title={`About - ${siteMetadata.author}`} description={siteMetadata.description} />
     <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-      <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-        About
-      </h1>
+      <PageTitle>About</PageTitle>
     </div>
     <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
       <div className="flex flex-col items-center pt-8 space-x-2">

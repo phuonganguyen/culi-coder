@@ -1,4 +1,6 @@
 import ListLayout from '@/components/ListLayout'
+import { TagSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 import { getPosts, getTags } from 'src/services'
 
 export async function getStaticPaths() {
@@ -26,6 +28,10 @@ export default function Tag({ posts, tag }) {
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   return (
     <>
+      <TagSEO
+        title={`${tag} - ${siteMetadata.title}`}
+        description={`${tag} tags - ${siteMetadata.author}`}
+      />
       <ListLayout posts={posts} title={title} />
     </>
   )

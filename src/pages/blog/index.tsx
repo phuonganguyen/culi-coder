@@ -1,4 +1,6 @@
 import ListLayout from '@/components/ListLayout'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 import React from 'react'
 import { getPosts } from 'src/services'
 
@@ -17,12 +19,15 @@ export async function getStaticProps() {
 
 const Blog = ({ posts, initialDisplayPosts, pagination }) => {
   return (
-    <ListLayout
-      posts={posts}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-    />
+    <>
+      <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
+      <ListLayout
+        posts={posts}
+        initialDisplayPosts={initialDisplayPosts}
+        pagination={pagination}
+        title="All Posts"
+      />
+    </>
   )
 }
 

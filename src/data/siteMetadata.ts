@@ -1,8 +1,11 @@
 const siteMetadata = {
-  title: 'Phuong Culi!👋',
+  title: 'Phuong Culi',
+  description: 'My personal blog where I share my musings',
   theme: 'system',
   author: 'Phuong',
-  url: 'https://www.phuongculi.com/',
+  url: 'https://www.phuongculi.com',
+  siteLogo: '/static/logo.png',
+  socialBanner: '/static/twitter-card.png',
   email: 'phuong.nguyenanh06@gmail.com',
   github: 'https://github.com/phuonganguyen',
   twitter: 'https://twitter.com/phuongnguyen06',

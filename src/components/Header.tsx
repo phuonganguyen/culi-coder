@@ -1,15 +1,13 @@
-import headerNavLinks from "@/data/headerNavLinks";
-import siteMetadata from "@/data/siteMetadata";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import React from "react";
+import headerNavLinks from '@/data/headerNavLinks'
+import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
+import React from 'react'
 
-import Link from "./Link";
-import MobileNav from "./MobileNav";
-import ThemeSwitch from "./ThemeSwitch";
+import Link from './Link'
+import MobileNav from './MobileNav'
+import ThemeSwitch from './ThemeSwitch'
 
 const Header = () => {
-  const router = useRouter()
   return (
     <header className="sticky top-0 left-0 right-0 z-[110] border-b border-gray-200 bg-opacity-30 py-6 backdrop-blur-lg backdrop-filter dark:border-gray-700">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 sm:px-6 xl:max-w-5xl xl:px-0">
