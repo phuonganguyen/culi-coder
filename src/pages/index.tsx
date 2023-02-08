@@ -1,11 +1,11 @@
-import Link from '@/components/Link'
-import PostBlock from '@/components/PostBlock'
-import { PageSEO } from '@/components/SEO'
-import ShortcutHome from '@/components/ShortcutHome'
-import siteMetadata from '@/data/siteMetadata'
-import React from 'react'
-import { RoughNotation } from 'react-rough-notation'
-import { getPosts } from 'src/services'
+import Link from "@/components/Link";
+import PostBlock from "@/components/PostBlock";
+import { PageSEO } from "@/components/SEO";
+import ShortcutHome from "@/components/ShortcutHome";
+import siteMetadata from "@/data/siteMetadata";
+import React from "react";
+import { RoughNotation } from "react-rough-notation";
+import { getPosts } from "src/services";
 
 const MAX_DISPLAY = 3
 
@@ -169,6 +169,11 @@ const IndexPage = ({ posts }) => (
           </div>
         </div>
       </div>
+      {/* <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+          Recent Posts
+        </h1>
+      </div> */}
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         {!posts.length && 'No posts found.'}
         {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {

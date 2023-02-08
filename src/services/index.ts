@@ -7,13 +7,16 @@ const client = new GraphQLClient(graphqlAPI)
 export const getPosts = async () => {
   const query = gql`
     {
-      posts {
+      posts(orderBy: createdAt_DESC) {
         createdAt
         slug
         title
         excerpt
         tags {
           slug
+        }
+        featuredImage {
+          url
         }
       }
     }
