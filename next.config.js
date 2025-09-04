@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['media.graphcms.com', 'media.graphassets.com'],
+    domains: ['ap-southeast-2.graphassets.com'],
   },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
