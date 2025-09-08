@@ -4,6 +4,29 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
 const client = new GraphQLClient(graphqlAPI)
 
+export const getExperiences = async () => {
+  const query = gql`
+    {
+      experiences {
+        title
+        company
+        companyLogo{
+          url
+        }
+        location
+        startDate
+        endDate
+        current
+        description
+      }
+    }
+  `
+
+  const { tags } = await client.request(query)
+
+  return tags
+}
+
 export const getPosts = async () => {
   const query = gql`
     {

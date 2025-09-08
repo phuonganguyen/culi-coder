@@ -6,8 +6,15 @@ import experienceData from '@/data/experienceData'
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 import { RoughNotation } from 'react-rough-notation'
+import { getExperiences } from 'src/services'
 
-const About = () => (
+export async function getStaticProps() {
+  const experiences = (await getExperiences()) || []
+
+  return { props: { experiences }, revalidate: 10 }
+}
+
+const About = ({experiences}) => (
   <>
     <PageSEO title={`About - ${siteMetadata.author}`} description={siteMetadata.description} />
     <div className="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -71,14 +78,14 @@ const About = () => (
         </h1>
       </div>
       <div className="pt-8 pb-8 max-w-none xl:col-span-2">
-        {experienceData.map((d) => (
+        {experiences.map((d, index) => (
           <Experience
-            key={d.company}
+            key={index}
             title={d.title}
             company={d.company}
-            range={d.range}
-            url={d.url}
-            roles={d.roles}
+            range={`${d.startDate} - ${d.current ? 'Present' : d.endDate}`}
+            url={""}
+            roles={d.description}
           />
         ))}
       </div>
