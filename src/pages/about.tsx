@@ -13,9 +13,7 @@ export async function getStaticProps() {
   return { props: { experiences }, revalidate: 10 }
 }
 
-const About = ({experiences}) => {
-  console.log(experiences);
-  return (
+const About = ({experiences}) => (
   <>
     <PageSEO title={`About - ${siteMetadata.author}`} description={siteMetadata.description} />
     <div className="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -80,18 +78,24 @@ const About = ({experiences}) => {
       </div>
       <div className="pt-8 pb-8 max-w-none xl:col-span-2">
         {experiences.map((d, index) => (
-          <Experience
-            key={index}
-            title={d.title}
-            company={d.company}
-            range={`${d.startDate} - ${d.current ? 'Present' : d.endDate}`}
-            url={""}
-            roles={d.description.text.split('\\n').filter(role => role.trim() !== '')}
-          />
+              <Experience
+                key={index}
+                title={d.title}
+                company={d.company}
+                range={`${formatMonthYear(d.startDate)} - ${d.current ? 'Present' : formatMonthYear(d.endDate)}`}
+                url={""}
+                roles={d.description.text.split('\\n').filter(role => role.trim() !== '')}
+              />
         ))}
       </div>
     </div>
   </>
-)}
+)
+function formatMonthYear(dateStr) {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  if (isNaN(date.getTime())) return dateStr;
+  return date.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+}
 
 export default About
