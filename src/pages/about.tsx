@@ -83,7 +83,7 @@ const About = ({experiences}) => (
                 title={d.title}
                 company={d.company}
                 range={`${formatMonthYear(d.startDate)} - ${d.current ? 'Present' : formatMonthYear(d.endDate)}`}
-                url={d.companyURL}
+                url={d.companyUrl}
                 roles={d.description.text.split('\\n').filter(role => role.trim() !== '')}
                 logoUrl={d.companyLogo?.url}
               />
