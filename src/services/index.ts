@@ -7,7 +7,7 @@ const client = new GraphQLClient(graphqlAPI)
 export const getExperiences = async () => {
   const query = gql`
     {
-      experiences {
+      experiences(orderBy: startDate_DESC) {
         title
         company
         companyLogo{
