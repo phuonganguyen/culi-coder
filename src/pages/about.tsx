@@ -85,7 +85,7 @@ const About = ({experiences}) => (
             company={d.company}
             range={`${d.startDate} - ${d.current ? 'Present' : d.endDate}`}
             url={""}
-            roles={d.description}
+            roles={d.description.text.split('\\n').filter(role => role.trim() !== '')}
           />
         ))}
       </div>

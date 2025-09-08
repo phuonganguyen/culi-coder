@@ -17,7 +17,9 @@ export const getExperiences = async () => {
         startDate
         endDate
         current
-        description
+        description{
+          text
+        }
       }
     }
   `
