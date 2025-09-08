@@ -24,9 +24,9 @@ export const getExperiences = async () => {
     }
   `
 
-  const { tags } = await client.request(query)
+  const { experiences } = await client.request(query)
 
-  return tags
+  return experiences
 }
 
 export const getPosts = async () => {
