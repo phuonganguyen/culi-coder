@@ -2,7 +2,6 @@ import Experience from '@/components/Experience'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import { PageSEO } from '@/components/SEO'
-import experienceData from '@/data/experienceData'
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 import { RoughNotation } from 'react-rough-notation'
@@ -14,7 +13,9 @@ export async function getStaticProps() {
   return { props: { experiences }, revalidate: 10 }
 }
 
-const About = ({experiences}) => (
+const About = ({experiences}) => {
+  console.log(experiences);
+  return (
   <>
     <PageSEO title={`About - ${siteMetadata.author}`} description={siteMetadata.description} />
     <div className="pt-6 pb-8 space-y-2 md:space-y-5">
@@ -91,6 +92,6 @@ const About = ({experiences}) => (
       </div>
     </div>
   </>
-)
+)}
 
 export default About
