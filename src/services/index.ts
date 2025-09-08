@@ -10,6 +10,7 @@ export const getExperiences = async () => {
       experiences(orderBy: startDate_DESC) {
         title
         company
+        companyURL
         companyLogo{
           url
         }
