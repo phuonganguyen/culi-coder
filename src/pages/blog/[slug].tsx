@@ -44,7 +44,7 @@ const PostDetail = ({ post }) => {
               <dd>
                 <div className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
                   <div className="flex items-center space-x-2">
-                    {author.photo.url && (
+                    {author?.photo?.url && (
                       <Image
                         src={author.photo.url}
                         width="38px"
@@ -54,10 +54,14 @@ const PostDetail = ({ post }) => {
                       />
                     )}
                     <dl className="text-sm font-medium leading-5 whitespace-nowrap">
-                      <dt className="sr-only">Name</dt>
-                      <dd className="uppercase text-primary-color dark:text-primary-color-dark hover:text-blue-600 dark:hover:text-yellow-300">
-                        {author.name}
-                      </dd>
+                      {author?.name && (
+                        <>
+                          <dt className="sr-only">Name</dt>
+                          <dd className="uppercase text-primary-color dark:text-primary-color-dark hover:text-blue-600 dark:hover:text-yellow-300">
+                            {author.name}
+                          </dd>
+                        </>
+                      )}
                       <dt className="sr-only">Time</dt>
                       <dd className="text-slate-500 dark:text-slate-400">
                         <time dateTime={createdAt}>
