@@ -172,10 +172,22 @@ module.exports = {
             height: '0.75rem',
           },
         },
+        tilt: {
+          '0%, 50%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(0.5deg)',
+          },
+          '75%': {
+            transform: 'rotate(-0.5deg)',
+          },
+        },
       },
       animation: {
-        shrink: 'shrink 1.5s infinte',
-        expand: 'expand 1.5s infinte',
+        shrink: 'shrink 1.5s infinite',
+        expand: 'expand 1.5s infinite',
+        tilt: 'tilt 10s infinite linear',
       },
     },
   },

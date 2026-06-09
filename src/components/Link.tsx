@@ -2,7 +2,10 @@
 import Link from "next/link";
 
 const CustomLink = ({ href, ...rest }) => {
-  const isInternalLink = href && href.startsWith('/')
+  // A static asset in /public (e.g. /static/resume.pdf) — open in a new tab
+  // instead of routing through next/link, which only handles page routes.
+  const isStaticFile = href && href.startsWith('/') && /\.[a-z0-9]+$/i.test(href)
+  const isInternalLink = href && href.startsWith('/') && !isStaticFile
   const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {

@@ -29,7 +29,7 @@ export default function ShortcutHome() {
       return (
         <button className="p-1 rounded-md" onClick={query.toggle}>
           <span className="text-lg">Press</span>{' '}
-          <span className="text-gray-900 bg-gray-300 rounded-md  text-lgp-1">ctrl</span>{' '}
+          <span className="p-1 text-lg text-gray-900 bg-gray-300 rounded-md">ctrl</span>{' '}
           <span className="text-lg">+ </span>
           <span className="p-1 text-lg text-gray-900 bg-gray-300 rounded-md">K</span>{' '}
           <span className="text-lg">to start →</span>

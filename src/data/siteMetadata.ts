@@ -8,6 +8,8 @@ const siteMetadata = {
   socialBanner: '/static/twitter-card.png',
   email: 'phuong.nguyenanh06@gmail.com',
   github: 'https://github.com/phuonganguyen',
+  // Downloadable PDF in public/static. Regenerate with: python3 scripts/generate_resume.py
+  resume: '/static/resume.pdf',
   twitter: 'https://twitter.com/phuongnguyen06',
   facebook: 'https://www.facebook.com/phuong.a.nguyen.7',
   instagram: 'https://www.instagram.com/phuong.nguyenanh06',

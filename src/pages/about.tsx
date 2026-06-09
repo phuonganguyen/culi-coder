@@ -34,22 +34,20 @@ const About = ({experiences}) => (
       </div>
       <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
         <p>
-          I'm graduated with bachelor of information system degree from the Hoa Sen University in
-          the summer of 2014. I live in Ho Chi Minh City.
+          I graduated with a bachelor of information systems degree from Hoa Sen University in the
+          summer of 2014. I live in Ho Chi Minh City.
         </p>
-        <br />
         <p>
-          <RoughNotation type="bracket" brackets={['left', 'right']} show={true} color="#FF0000">
-            I'm very dedicated to learn new things and to truly belive that you should never stop
-            learning. I enjoy creating different things, whether that be websites, application or
+          <RoughNotation type="bracket" brackets={['left', 'right']} show={true} color="#f87171">
+            I'm very dedicated to learning new things and truly believe that you should never stop
+            learning. I enjoy creating different things, whether that be websites, applications, or
             anything in between.
           </RoughNotation>
         </p>
-        <br />
         <p>
           At my first full-time job as a developer I feel like I've been very lucky to experience a
-          broad and diverce part of projects and tasks. I get to deal with everything from user
-          feedback, design and to backend tests and improving parts of our daily operations. <br />
+          broad and diverse range of projects and tasks. I get to deal with everything from user
+          feedback and design to backend tests and improving parts of our daily operations.{' '}
           <RoughNotation type="underline" show={true} color="#34D399" animationDelay={1000}>
             <Link
               href={'/uses'}
@@ -58,9 +56,8 @@ const About = ({experiences}) => (
               Here{' '}
             </Link>
           </RoughNotation>{' '}
-          you can see what I use on daily basis.
+          you can see what I use on a daily basis.
         </p>
-        <br />
         <p>
           Feel free to reach out if you have anything to talk about, you can reach me on{' '}
           <RoughNotation type="highlight" show={true} color="#FBCFE8" animationDelay={1200}>
@@ -76,17 +73,19 @@ const About = ({experiences}) => (
           Experience
         </h1>
       </div>
-      <div className="pt-8 pb-8 max-w-none xl:col-span-2">
+      <div className="max-w-none divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-2">
         {experiences.map((d, index) => (
-              <Experience
-                key={index}
-                title={d.title}
-                company={d.company}
-                range={`${formatMonthYear(d.startDate)} - ${d.current ? 'Present' : formatMonthYear(d.endDate)}`}
-                url={d.companyUrl}
-                roles={d.description.text.split('\\n').filter(role => role.trim() !== '')}
-                logoUrl={d.companyLogo?.url}
-              />
+          <Experience
+            key={index}
+            title={d.title}
+            company={d.company}
+            range={`${formatMonthYear(d.startDate)} - ${
+              d.current ? 'Present' : formatMonthYear(d.endDate)
+            }`}
+            url={d.companyUrl}
+            roles={d.description.text.split('\\n').filter((role) => role.trim() !== '')}
+            logoUrl={d.companyLogo?.url}
+          />
         ))}
       </div>
     </div>
