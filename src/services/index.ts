@@ -30,6 +30,30 @@ export const getExperiences = async () => {
   return experiences
 }
 
+export const getProjects = async () => {
+  const query = gql`
+    {
+      projects(orderBy: createdAt_DESC) {
+        name
+        slug
+        role
+        link
+        technologies
+        description {
+          text
+        }
+        thumbnail {
+          url
+        }
+      }
+    }
+  `
+
+  const { projects } = await client.request(query)
+
+  return projects
+}
+
 export const getPosts = async () => {
   const query = gql`
     {
