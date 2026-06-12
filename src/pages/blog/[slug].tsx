@@ -57,13 +57,13 @@ const PostDetail = ({ post }) => {
                       {author?.name && (
                         <>
                           <dt className="sr-only">Name</dt>
-                          <dd className="uppercase text-primary-color dark:text-primary-color-dark hover:text-blue-600 dark:hover:text-yellow-300">
+                          <dd className="font-medium text-gray-900 dark:text-gray-100">
                             {author.name}
                           </dd>
                         </>
                       )}
                       <dt className="sr-only">Time</dt>
-                      <dd className="text-slate-500 dark:text-slate-400">
+                      <dd className="text-gray-500 dark:text-gray-400">
                         <time dateTime={createdAt}>
                           {new Date(createdAt).toLocaleDateString(
                             siteMetadata.locale,
@@ -101,7 +101,7 @@ const PostDetail = ({ post }) => {
               <div className="pt-4 xl:pt-8">
                 <Link
                   href="/blog"
-                  className="text-primary-color dark:text-primary-color-dark hover:text-blue-600 dark:hover:text-yellow-300"
+                  className="text-primary-color transition-colors hover:text-primary-700 dark:text-primary-color-dark dark:hover:text-primary-300"
                 >
                   &larr; Back to the blog
                 </Link>

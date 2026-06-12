@@ -14,7 +14,7 @@ const ProjectCard: React.FC<Project> = ({
   repo,
   thumbnail,
 }) => (
-  <div className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md dark:border-gray-700 dark:bg-gray-900/40">
+  <div className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/40">
     <div className="relative h-40 w-full overflow-hidden">
       {thumbnail ? (
         <Image
@@ -25,8 +25,8 @@ const ProjectCard: React.FC<Project> = ({
           className="transition duration-300 group-hover:scale-105"
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-primary-color to-purple-600">
-          <span className="select-none text-5xl font-extrabold text-white/90">
+        <div className="flex h-full w-full items-center justify-center bg-gray-100 dark:bg-gray-800">
+          <span className="select-none font-display text-6xl font-semibold text-primary-color/60 dark:text-primary-color-dark/50">
             {name.charAt(0)}
           </span>
         </div>
@@ -35,7 +35,9 @@ const ProjectCard: React.FC<Project> = ({
 
     <div className="flex flex-1 flex-col p-5">
       <div className="flex items-start justify-between gap-2">
-        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">{name}</h2>
+        <h2 className="font-display text-xl font-semibold text-gray-900 dark:text-gray-100">
+          {name}
+        </h2>
         <div className="mt-1 flex shrink-0 items-center gap-3 text-gray-400">
           {repo && (
             <Link

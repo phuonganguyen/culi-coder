@@ -11,7 +11,24 @@ html {
 }
 
 body {
-  @apply bg-white text-slate-900 dark:bg-background-color dark:text-slate-100;
+  @apply bg-paper text-gray-900 dark:bg-background-color dark:text-gray-100;
+}
+
+::selection {
+  @apply bg-primary-200 text-gray-900;
+}
+
+.dark ::selection {
+  @apply bg-primary-300/30 text-gray-100;
+}
+
+a:focus-visible,
+button:focus-visible {
+  @apply rounded outline-none ring-2 ring-primary-color ring-offset-2 ring-offset-paper dark:ring-primary-color-dark dark:ring-offset-background-color;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

@@ -1,5 +1,6 @@
+import Link from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
 import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getTags } from 'src/services'
 
@@ -13,22 +14,30 @@ export default function Tags({ tags }) {
   return (
     <>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:divide-y-0 md:flex-row md:space-x-6 md:mt-24">
-        <div className="pt-6 pb-8 space-x-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 md:border-r-2 md:px-6">
-            Tags
-          </h1>
-        </div>
-        <div className="flex flex-wrap max-w-lg">
-          {Object.keys(tags).length === 0 && 'No tags found.'}
-          {tags.map((t) => {
-            return (
-              <div key={t.slug} className="mt-2 mb-2 mr-5">
-                <Tag text={t.slug} />
-              </div>
-            )
-          })}
-        </div>
+      <div className="pt-6 pb-8 space-y-2 md:space-y-5">
+        <PageTitle>Tags</PageTitle>
+        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+          Every topic I have written about, in one place.
+        </p>
+      </div>
+      <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4 pb-8">
+        {tags.length === 0 && (
+          <p className="text-gray-500 dark:text-gray-400">
+            No tags yet — they will show up with the first post.
+          </p>
+        )}
+        {tags.map((t) => (
+          <Link
+            key={t.slug}
+            href={`/tags/${t.slug}`}
+            className="text-lg font-medium text-gray-900 transition-colors hover:text-primary-color dark:text-gray-100 dark:hover:text-primary-color-dark"
+          >
+            <span aria-hidden="true" className="text-primary-color dark:text-primary-color-dark">
+              #
+            </span>
+            {t.name}
+          </Link>
+        ))}
       </div>
     </>
   )

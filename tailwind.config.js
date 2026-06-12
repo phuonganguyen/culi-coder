@@ -17,42 +17,46 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        display: ['Fraunces', 'Georgia', ...defaultTheme.fontFamily.serif],
       },
       colors: {
-        'background-color': '#1F2023',
-        'primary-color': '#1e90ff',
-        'primary-color-dark': '#FFFF66',
+        paper: '#faf9f7',
+        'background-color': '#171412',
+        'primary-color': '#b45309',
+        'primary-color-dark': '#d4a24e',
         'spotify-green': '#1DB954',
-        primary: colors.teal,
-        gray: colors.neutral,
+        primary: colors.amber,
+        gray: colors.stone,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.slate.700'),
+            color: theme('colors.gray.700'),
             a: {
               color: theme('colors.primary-color'),
               '&:hover': {
-                color: theme('colors.primary.600'),
+                color: theme('colors.primary.700'),
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.primary.600') },
             },
             h1: {
-              fontWeight: '700',
+              fontFamily: theme('fontFamily.display').join(', '),
+              fontWeight: '600',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.900'),
+              color: theme('colors.gray.900'),
             },
             h2: {
-              fontWeight: '700',
+              fontFamily: theme('fontFamily.display').join(', '),
+              fontWeight: '600',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.900'),
+              color: theme('colors.gray.900'),
             },
             h3: {
               fontWeight: '600',
-              color: theme('colors.slate.900'),
+              color: theme('colors.gray.900'),
             },
             'h4,h5,h6': {
-              color: theme('colors.slate.900'),
+              color: theme('colors.gray.900'),
             },
             pre: {
               backgroundColor: theme('colors.gray.800'),
@@ -89,6 +93,9 @@ module.exports = {
               backgroundColor: theme('colors.gray.500'),
             },
             strong: { color: theme('colors.gray.600') },
+            'thead th': {
+              color: theme('colors.gray.900'),
+            },
             blockquote: {
               color: theme('colors.gray.900'),
               borderLeftColor: theme('colors.gray.200'),
@@ -97,30 +104,32 @@ module.exports = {
         },
         dark: {
           css: {
-            color: theme('colors.slate.200'), //text color for dark mode
+            color: theme('colors.gray.200'), //text color for dark mode
             a: {
               color: theme('colors.primary-color-dark'), // links in dark mode
               '&:hover': {
-                color: theme('colors.primary.400'),
+                color: theme('colors.primary.300'),
               },
               code: { color: theme('colors.primary.400') },
             },
             h1: {
-              fontWeight: '700',
+              fontFamily: theme('fontFamily.display').join(', '),
+              fontWeight: '600',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.100'),
+              color: theme('colors.gray.100'),
             },
             h2: {
-              fontWeight: '700',
+              fontFamily: theme('fontFamily.display').join(', '),
+              fontWeight: '600',
               letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.slate.100'),
+              color: theme('colors.gray.100'),
             },
             h3: {
               fontWeight: '600',
-              color: theme('colors.slate.100'),
+              color: theme('colors.gray.100'),
             },
             'h4,h5,h6': {
-              color: theme('colors.slate.100'),
+              color: theme('colors.gray.100'),
             },
             pre: {
               backgroundColor: theme('colors.gray.800'),
@@ -141,6 +150,9 @@ module.exports = {
             },
             strong: { color: theme('colors.gray.100') },
             thead: {
+              color: theme('colors.gray.100'),
+            },
+            'thead th': {
               color: theme('colors.gray.100'),
             },
             tbody: {
@@ -172,22 +184,10 @@ module.exports = {
             height: '0.75rem',
           },
         },
-        tilt: {
-          '0%, 50%, 100%': {
-            transform: 'rotate(0deg)',
-          },
-          '25%': {
-            transform: 'rotate(0.5deg)',
-          },
-          '75%': {
-            transform: 'rotate(-0.5deg)',
-          },
-        },
       },
       animation: {
         shrink: 'shrink 1.5s infinite',
         expand: 'expand 1.5s infinite',
-        tilt: 'tilt 10s infinite linear',
       },
     },
   },

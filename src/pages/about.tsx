@@ -38,7 +38,7 @@ const About = ({experiences}) => (
           summer of 2014. I live in Ho Chi Minh City.
         </p>
         <p>
-          <RoughNotation type="bracket" brackets={['left', 'right']} show={true} color="#f87171">
+          <RoughNotation type="bracket" brackets={['left', 'right']} show={true} color="#c78a3b">
             I'm very dedicated to learning new things and truly believe that you should never stop
             learning. I enjoy creating different things, whether that be websites, applications, or
             anything in between.
@@ -48,7 +48,7 @@ const About = ({experiences}) => (
           At my first full-time job as a developer I feel like I've been very lucky to experience a
           broad and diverse range of projects and tasks. I get to deal with everything from user
           feedback and design to backend tests and improving parts of our daily operations.{' '}
-          <RoughNotation type="underline" show={true} color="#34D399" animationDelay={1000}>
+          <RoughNotation type="underline" show={true} color="#c78a3b" animationDelay={1000}>
             <Link
               href={'/uses'}
               className="hover:text-primary-color dark:hover:text-primary-color-dark no-underline"
@@ -60,7 +60,7 @@ const About = ({experiences}) => (
         </p>
         <p>
           Feel free to reach out if you have anything to talk about, you can reach me on{' '}
-          <RoughNotation type="highlight" show={true} color="#FBCFE8" animationDelay={1200}>
+          <RoughNotation type="highlight" show={true} color="#f0dcb8" animationDelay={1200}>
             <span className="dark:text-gray-800">phuong.nguyenanh06@gmail.com </span>
           </RoughNotation>
           or on social media.
@@ -69,11 +69,11 @@ const About = ({experiences}) => (
     </div>
     <div className="mt-10">
       <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+        <h2 className="font-display text-3xl font-semibold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10">
           Experience
-        </h1>
+        </h2>
       </div>
-      <div className="max-w-none divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-2">
+      <div className="max-w-none divide-y divide-gray-200 dark:divide-gray-800 xl:col-span-2">
         {experiences.map((d, index) => (
           <Experience
             key={index}

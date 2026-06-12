@@ -12,7 +12,7 @@ const Header = () => {
   const router = useRouter()
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-[110] border-b border-gray-200 bg-white/70 py-6 backdrop-blur-lg backdrop-filter dark:border-gray-700 dark:bg-background-color/70">
+    <header className="sticky top-0 left-0 right-0 z-[110] border-b border-gray-200 bg-paper/70 py-6 backdrop-blur-lg backdrop-filter dark:border-gray-800 dark:bg-background-color/70">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <Link href="/" aria-label={siteMetadata.title}>
           <div className="flex items-center justify-between">
@@ -30,9 +30,9 @@ const Header = () => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`p-1 font-medium sm:p-4 hover:text-primary-color hover:dark:text-primary-color-dark ${
+                  className={`p-1 font-medium transition-colors hover:text-primary-color sm:p-4 hover:dark:text-primary-color-dark ${
                     isActive
-                      ? 'text-primary-color dark:text-primary-color-dark'
+                      ? 'text-primary-color underline decoration-2 underline-offset-8 dark:text-primary-color-dark'
                       : 'text-gray-900 dark:text-gray-100'
                   }`}
                 >

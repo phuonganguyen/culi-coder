@@ -1,27 +1,17 @@
 import Link from "@/components/Link";
 
-const UsesTech = ({ name, link, description }) => {
-  return (
-    <>
-      <div>
-        <ul key={name}>
-          <div className="flex flex-row">
-            <li key={name} className="mr-1 ">
-              <Link
-                href={link}
-                className="hover:text-primary-color dark:hover:text-primary-color-dark text-slate-500 text-lg dark:text-slate-400"
-              >
-                {name}
-              </Link>
-            </li>
-            <span className="ml-1 font-mono dark:text-gray-600 text-gray-200">
-              &#47;&#47; {description}
-            </span>
-          </div>
-        </ul>
-      </div>
-    </>
-  )
-}
+const UsesTech = ({ name, link, description }) => (
+  <li className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-3">
+    <Link
+      href={link}
+      className="shrink-0 font-medium text-gray-900 transition-colors hover:text-primary-color dark:text-gray-100 dark:hover:text-primary-color-dark"
+    >
+      {name}
+    </Link>
+    <span className="font-mono text-sm text-gray-500 dark:text-gray-400">
+      &#47;&#47; {description}
+    </span>
+  </li>
+)
 
 export default UsesTech
