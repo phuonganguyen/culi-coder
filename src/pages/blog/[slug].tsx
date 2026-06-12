@@ -1,6 +1,7 @@
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
+import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
@@ -26,6 +27,14 @@ const PostDetail = ({ post }) => {
 
   return (
     <div className="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
+      <BlogSEO
+        title={`${title} - ${siteMetadata.author}`}
+        summary={post.excerpt || siteMetadata.description}
+        date={createdAt}
+        url={`${siteMetadata.url}/blog/${post.slug}`}
+        images={post.featuredImage?.url ? [post.featuredImage.url] : []}
+        authorDetails={author?.name ? [{ name: author.name }] : undefined}
+      />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">

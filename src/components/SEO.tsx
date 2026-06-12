@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
-import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
 
 interface CommonSEOProps {
   title: string
@@ -99,9 +97,15 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-interface BlogSeoProps extends PostFrontMatter {
-  authorDetails?: AuthorFrontMatter[]
+interface BlogSeoProps {
+  title: string
+  summary: string
+  date: string
   url: string
+  lastmod?: string
+  images?: string[] | string
+  canonicalUrl?: string
+  authorDetails?: { name: string }[]
 }
 
 export const BlogSEO = ({
@@ -126,7 +130,8 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      url: `${siteMetadata.url}${img}`,
+      // CMS assets are absolute URLs; local assets are site-relative paths.
+      url: img.startsWith('http') ? img : `${siteMetadata.url}${img}`,
     }
   })
 

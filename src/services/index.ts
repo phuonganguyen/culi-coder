@@ -59,6 +59,7 @@ export const getPosts = async () => {
     {
       posts(orderBy: createdAt_DESC) {
         createdAt
+        updatedAt
         slug
         title
         excerpt

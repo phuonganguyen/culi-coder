@@ -16,6 +16,14 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
           <link rel="manifest" href="/favicon/site.webmanifest" />
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Phuong Culi - RSS feed"
+            href="/feed.xml"
+          />
+          <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f7" />
+          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#171412" />
         </Head>
         <body>
           <Main />
