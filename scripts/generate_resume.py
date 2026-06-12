@@ -48,7 +48,7 @@ RESUME = {
         "Ho Chi Minh City, Vietnam",
         "(+84) 932 975 529",
         "phuong.nguyenanh06@gmail.com",
-        "phuongculi.com",
+        "anhphuong.dev",
         "github.com/phuonganguyen",
         "linkedin.com/in/phuong-nguyen-5b214862",
     ],

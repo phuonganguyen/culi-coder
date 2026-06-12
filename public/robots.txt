@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.phuongculi.com/sitemap.xml
+Sitemap: https://www.anhphuong.dev/sitemap.xml

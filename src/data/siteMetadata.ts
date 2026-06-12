@@ -3,7 +3,7 @@ const siteMetadata = {
   description: 'My personal blog where I share my musings',
   theme: 'system',
   author: 'Phuong',
-  url: 'https://www.phuongculi.com',
+  url: 'https://www.anhphuong.dev',
   siteLogo: '/static/logo.png',
   socialBanner: '/static/twitter-card.png',
   email: 'phuong.nguyenanh06@gmail.com',
