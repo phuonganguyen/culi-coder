@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <link
             rel="alternate"
             type="application/rss+xml"
-            title="Phuong Culi - RSS feed"
+            title="Phuong Nguyen - RSS feed"
             href="/feed.xml"
           />
           <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f7" />

@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'Phuong Culi',
+  title: 'Phuong Nguyen',
   description: 'My personal blog where I share my musings',
   theme: 'system',
   author: 'Phuong',

@@ -20,7 +20,7 @@ export type Project = {
  */
 export const PROJECTS: Project[] = [
   {
-    name: 'Phuong Culi',
+    name: 'anhphuong.dev',
     role: 'Personal blog & portfolio',
     description:
       'This very site — a statically generated Next.js blog and portfolio backed by Hygraph (GraphCMS). Features a ⌘K command palette, system-aware dark mode, ISR-powered content, and a live now-playing Spotify widget.',
