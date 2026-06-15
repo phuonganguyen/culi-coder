@@ -78,7 +78,7 @@ const PostDetail = ({ post }) => {
         )}
 
         <div
-          className="prose mt-10 max-w-3xl dark:prose-dark"
+          className="prose mt-10 max-w-none dark:prose-dark"
           dangerouslySetInnerHTML={{ __html: content.html }}
         ></div>
 
