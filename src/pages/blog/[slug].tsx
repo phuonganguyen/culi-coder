@@ -119,6 +119,9 @@ export default PostDetail
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug)
+  if (!data) {
+    return { notFound: true, revalidate: 10 }
+  }
   return {
     props: {
       post: data,
