@@ -1,20 +1,14 @@
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
 import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import { formatDate } from '@/utils/date-utils'
+import { readingTime } from '@/utils/reading-time'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { getPostDetails, getPosts } from 'src/services'
-
-const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
 
 const PostDetail = ({ post }) => {
   const router = useRouter()
@@ -23,101 +17,99 @@ const PostDetail = ({ post }) => {
     return <></>
   }
 
-  const { createdAt, title, tags, content, author } = post
+  const { createdAt, title, tags, content, author, featuredImage } = post
+  const kicker = tags?.[0]?.slug
+  const minutes = readingTime(content?.html)
 
   return (
-    <div className="max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6">
       <BlogSEO
         title={`${title} - ${siteMetadata.author}`}
         summary={post.excerpt || siteMetadata.description}
         date={createdAt}
         url={`${siteMetadata.url}/blog/${post.slug}`}
-        images={post.featuredImage?.url ? [post.featuredImage.url] : []}
+        images={featuredImage?.url ? [featuredImage.url] : []}
         authorDetails={author?.name ? [{ name: author.name }] : undefined}
       />
-      <article>
-        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
-            </div>
-          </header>
-          <div
-            className="pb-8 divide-y divide-gray-200 xl:divide-y-0 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6"
-            style={{ gridTemplateRows: 'auto 1fr' }}
-          >
-            <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
-              <dd>
-                <div className="flex justify-center space-x-8 xl:block sm:space-x-12 xl:space-x-0 xl:space-y-8">
-                  <div className="flex items-center space-x-2">
-                    {author?.photo?.url && (
-                      <Image
-                        src={author.photo.url}
-                        width="38px"
-                        height="38px"
-                        alt="avatar"
-                        className="w-10 h-10 rounded-full"
-                      />
-                    )}
-                    <dl className="text-sm font-medium leading-5 whitespace-nowrap">
-                      {author?.name && (
-                        <>
-                          <dt className="sr-only">Name</dt>
-                          <dd className="font-medium text-gray-900 dark:text-gray-100">
-                            {author.name}
-                          </dd>
-                        </>
-                      )}
-                      <dt className="sr-only">Time</dt>
-                      <dd className="text-gray-500 dark:text-gray-400">
-                        <time dateTime={createdAt}>
-                          {new Date(createdAt).toLocaleDateString(
-                            siteMetadata.locale,
-                            postDateTemplate
-                          )}
-                        </time>
-                      </dd>
-                    </dl>
-                  </div>
-                </div>
-              </dd>
-            </dl>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:pb-0 xl:col-span-3 xl:row-span-2">
-              <div
-                className="pt-10 pb-8 prose dark:prose-dark max-w-none"
-                dangerouslySetInnerHTML={{ __html: content.html }}
-              ></div>
-              <Comments frontMatter={post} />
-            </div>
-            <footer>
-              <div className="text-sm font-medium leading-5 divide-gray-200 xl:divide-y dark:divide-gray-700 xl:col-start-1 xl:row-start-2">
-                {tags && (
-                  <div className="py-4 xl:py-8">
-                    <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                      Tags
-                    </h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag.slug} text={tag.slug} />
-                      ))}
-                    </div>
-                  </div>
+      <article className="py-8 sm:py-10">
+        <header className="space-y-5">
+          {kicker && (
+            <p className="font-display text-sm font-semibold uppercase tracking-widest text-primary-color dark:text-primary-color-dark">
+              {kicker}
+            </p>
+          )}
+          <h1 className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl md:text-5xl md:leading-tight">
+            {title}
+          </h1>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
+            {author?.photo?.url && (
+              <span className="flex items-center gap-2">
+                <Image
+                  src={author.photo.url}
+                  width={28}
+                  height={28}
+                  alt={author.name || 'avatar'}
+                  className="rounded-full"
+                />
+                {author?.name && (
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{author.name}</span>
                 )}
-              </div>
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href="/blog"
-                  className="text-primary-color transition-colors hover:text-primary-700 dark:text-primary-color-dark dark:hover:text-primary-300"
-                >
-                  &larr; Back to the blog
-                </Link>
-              </div>
-            </footer>
+              </span>
+            )}
+            {author?.photo?.url && <span aria-hidden="true">&middot;</span>}
+            <time dateTime={createdAt}>{formatDate(createdAt)}</time>
+            <span aria-hidden="true">&middot;</span>
+            <span>{minutes} min read</span>
           </div>
-        </div>
+        </header>
+
+        {featuredImage?.url && (
+          <figure className="my-10 overflow-hidden rounded-2xl ring-1 ring-gray-900/5 dark:ring-white/10">
+            <Image
+              src={featuredImage.url}
+              alt={`Cover image for "${title}"`}
+              width={1200}
+              height={630}
+              layout="responsive"
+              priority
+              className="object-cover"
+            />
+          </figure>
+        )}
+
+        <div
+          className="prose mt-10 max-w-none dark:prose-dark"
+          dangerouslySetInnerHTML={{ __html: content.html }}
+        ></div>
+
+        <footer className="mt-12 border-t border-gray-200 pt-8 dark:border-gray-700">
+          {tags && tags.length > 0 && (
+            <div className="mb-6">
+              <h2 className="mb-3 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                Tags
+              </h2>
+              <div className="flex flex-wrap">
+                {tags.map((tag) => (
+                  <Tag key={tag.slug} text={tag.slug} />
+                ))}
+              </div>
+            </div>
+          )}
+          <Link
+            href="/blog"
+            className="group inline-flex items-center text-primary-color transition-colors hover:text-primary-700 dark:text-primary-color-dark dark:hover:text-primary-300"
+          >
+            <span
+              aria-hidden="true"
+              className="mr-1 inline-block transition-transform duration-200 group-hover:-translate-x-1"
+            >
+              &larr;
+            </span>
+            Back to the blog
+          </Link>
+        </footer>
+
+        <Comments frontMatter={post} />
       </article>
     </div>
   )

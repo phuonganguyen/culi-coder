@@ -6,7 +6,7 @@ import Link from "./Link";
 import Tag from "./Tag";
 
 const PostBlock = ({ title, slug, createdAt, tags, excerpt, featuredImage }) => {
-  let thumbnail = (
+  let thumbnail = featuredImage?.url ? (
     <Link
       href={`/blog/${slug}`}
       title={title}
@@ -21,13 +21,13 @@ const PostBlock = ({ title, slug, createdAt, tags, excerpt, featuredImage }) => 
         height={400}
       />
     </Link>
-  )
+  ) : null
 
   return (
     <article>
       <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-start xl:gap-5 xl:space-y-0">
         <div className="xl:col-span-1">
-          <dt className="mb-4">{thumbnail}</dt>
+          {thumbnail && <dt className="mb-4">{thumbnail}</dt>}
           <dt className="sr-only">Published on</dt>
           <dd className="text-base font-medium leading-6 text-gray-600 dark:text-gray-400">
             <time dateTime={createdAt}>{formatDate(createdAt)}</time>
