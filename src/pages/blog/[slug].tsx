@@ -22,7 +22,7 @@ const PostDetail = ({ post }) => {
   const minutes = readingTime(content?.html)
 
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6">
+    <>
       <BlogSEO
         title={`${title} - ${siteMetadata.author}`}
         summary={post.excerpt || siteMetadata.description}
@@ -78,7 +78,7 @@ const PostDetail = ({ post }) => {
         )}
 
         <div
-          className="prose mt-10 max-w-none dark:prose-dark"
+          className="prose mt-10 max-w-3xl dark:prose-dark"
           dangerouslySetInnerHTML={{ __html: content.html }}
         ></div>
 
@@ -111,7 +111,7 @@ const PostDetail = ({ post }) => {
 
         <Comments frontMatter={post} />
       </article>
-    </div>
+    </>
   )
 }
 
