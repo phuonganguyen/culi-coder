@@ -37,6 +37,14 @@ input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 
+/* Utterances comments default to a centered 760px box; left-align and let it
+   fill the article width so it lines up with the post body. */
+#comment .utterances {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 /**
  * CSS Styles for code highlighting.
  * Feel free to customize token styles 
